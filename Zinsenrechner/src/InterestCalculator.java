@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class InterestCalculator {
 
     //***Method is used in Main to determine the interest rate based on the risk class input***
