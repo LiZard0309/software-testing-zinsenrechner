@@ -4,14 +4,15 @@ Ziel des Projektes ist es darzustellen, dass Sie sich mit dem Thema Softwaretest
 
 Allgemein:
 
-    ein lauffähiges Programm, welches so strukturiert ist, dass Methoden zum Testen vorhanden sind (es mag sein, dass Sie hier den Code stärker strukturieren müssen als eigentlich üblich)
+    *) ein lauffähiges Programm, welches so strukturiert ist, dass Methoden zum Testen vorhanden sind (es mag sein, dass Sie hier den Code stärker strukturieren müssen als eigentlich üblich)
 
-    mindestens zwei Methoden, welche jeweils mindestens einen Parameter übernehmen und einen return-Wert liefern
+    *) mindestens zwei Methoden, welche jeweils mindestens einen Parameter übernehmen und einen return-Wert liefern
 
 Hinsichtlich Software Tests:
 
-    Testmethoden welche gültige und ungültige Äquivalenzklassen testen. Bei ungültigen sollen Exceptions geworfen und getestet werden
-    Eine kurze Darstellung über die Äquivalenzklassen des oder der Paramter einer Funktion als Kommentar über der Funktion, sowie erwartete Ergebnisse
+    *) Testmethoden welche gültige und ungültige Äquivalenzklassen testen. Bei ungültigen sollen Exceptions geworfen und getestet werden
+    
+    *)Eine kurze Darstellung über die Äquivalenzklassen des oder der Paramter einer Funktion als Kommentar über der Funktion, sowie erwartete Ergebnisse
 
 Es geht hier nicht um die Quantität der Testfälle! Sie sollen zeigen, dass Sie verstehen wie man methodisch sich dem Black-Box Testen nähert und wie man Unit-Testfälle schreibt. Eine gute Hand von unterschiedlicher Testfälle ist besser als eine vielzahl von gleichartigen Testfällen!
 
