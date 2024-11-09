@@ -30,5 +30,6 @@ Mindestanforderungen hinsichtlich des Testens:
 
 
 +++Ablauf Gruppenübung+++
+
 Jede Gruppe verfasst ein mehr oder weniger ausführlich geschriebenes "Lastenheft" als "Auftraggeber" - alle Gruppen bekommen dann als "Auftragnehmer" eine dieser Anforderungsbeschreibungen zugewiesen. Darin evtl. ungeklärte offene Fragen sollen zuerst untereinander geklärt werden.
 Anschließend soll ein Programm im Umfang wie oben beschrieben ausgearbeitet und getestet werden.
