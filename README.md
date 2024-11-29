@@ -1,5 +1,7 @@
 +++Hinweise zum Umfang des Projektes:+++
 
+Abgabedatum: 01.12.2024
+
 Ziel des Projektes ist es darzustellen, dass Sie sich mit dem Thema Softwaretest, im Speziellen, dem erstellen von Testfällen für Black-Box Komponententest sowie deren Automatisierung mithilfe von Unit Test beschäftigt haben. Was wird erwartet:
 
 Allgemein:
@@ -34,3 +36,23 @@ Mindestanforderungen hinsichtlich des Testens:
 
 Jede Gruppe verfasst ein mehr oder weniger ausführlich geschriebenes "Lastenheft" als "Auftraggeber" - alle Gruppen bekommen dann als "Auftragnehmer" eine dieser Anforderungsbeschreibungen zugewiesen. Darin evtl. ungeklärte offene Fragen sollen zuerst untereinander geklärt werden.
 Anschließend soll ein Programm im Umfang wie oben beschrieben ausgearbeitet und getestet werden.
+
+
+
++++Angabe "Lastenheft" von Peer-Group "Auftraggeber"+++
+
+Anforderungsbeschreibung: Anlagerechner
+Wir, als seriöse Bank, möchten unseren KundInnen einen benutzerfreundlichen
+Anlagerechner zur Verfügung stellen, der als einfache Java-Anwendung (Konsolenbasiert)
+umgesetzt wird. Der Rechner soll es dem/der NutzerIn ermöglichen, durch Eingabe von
+Anlagekapital (EUR), Laufzeit (Jahre) und Risikoklasse eine Kapitalentwicklung zu
+simulieren. Dabei stehen drei Risikoklassen für unsere KundInnen zur Auswahl, die vom
+Programm erfragt werden sollen: Niedriges Risiko mit 2,5% Zinsen, mittleres Risiko mit 7%
+Zinsen und hohes Risiko mit 15% Zinsen. Nach Eingabe der Daten wird das zukünftige
+Kapital unter Berücksichtigung der Laufzeit und des Zinssatzes berechnet.
+Mit unserem Rechner soll es unseren KundInnen möglich sein, unterschiedliche
+Risiko-Szenarien mehrmals zu testen. Diese Anwendung muss selbstverständlich als reine
+Konsolenanwendung umgesetzt werden. Diese Textausgabe soll nochmals die eingegebenen
+Werte zusammengefasst ausgeben - in klarer, unkomplizierter Textausgabe. Wir gehen
+davon aus, dass eine zügige Umsetzung sofort erfolgt, und bedanken uns erst bei Lieferung
+für die extrem schnelle Bearbeitung. Zeit ist schließlich Geld. :)
