@@ -50,9 +50,4 @@ simulieren. Dabei stehen drei Risikoklassen für unsere KundInnen zur Auswahl, d
 Programm erfragt werden sollen: Niedriges Risiko mit 2,5% Zinsen, mittleres Risiko mit 7%
 Zinsen und hohes Risiko mit 15% Zinsen. Nach Eingabe der Daten wird das zukünftige
 Kapital unter Berücksichtigung der Laufzeit und des Zinssatzes berechnet.
-Mit unserem Rechner soll es unseren KundInnen möglich sein, unterschiedliche
-Risiko-Szenarien mehrmals zu testen. Diese Anwendung muss selbstverständlich als reine
-Konsolenanwendung umgesetzt werden. Diese Textausgabe soll nochmals die eingegebenen
-Werte zusammengefasst ausgeben - in klarer, unkomplizierter Textausgabe. Wir gehen
-davon aus, dass eine zügige Umsetzung sofort erfolgt, und bedanken uns erst bei Lieferung
-für die extrem schnelle Bearbeitung. Zeit ist schließlich Geld. :)
+Diese Anwendung muss selbstverständlich als reine Konsolenanwendung umgesetzt werden. Diese Textausgabe soll nochmals die eingegebenen Werte zusammengefasst ausgeben - in klarer, unkomplizierter Textausgabe. Wir gehen davon aus, dass eine zügige Umsetzung sofort erfolgt, und bedanken uns erst bei Lieferung für die extrem schnelle Bearbeitung. Zeit ist schließlich Geld. :)
