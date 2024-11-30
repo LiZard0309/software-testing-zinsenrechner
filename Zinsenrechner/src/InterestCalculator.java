@@ -1,10 +1,9 @@
 import java.math.BigDecimal;
-import java.text.DecimalFormat;
 
 public class InterestCalculator {
 
     //***Method is used in Main to determine the interest rate based on the risk class input***
-    double determineInterestRate(int risk) throws wrongInputException {
+    double determineInterestRate(int risk) throws InvalidRiskException {
         double validatedInterestRate = 0;
 
         if (risk == 1 || risk == 2 || risk == 3) {
@@ -15,17 +14,17 @@ public class InterestCalculator {
                 default -> 0;
             };
         } else {
-            throw new wrongInputException("Invalid input: Please enter a number from 1 to 3.");
+            throw new InvalidRiskException("Invalid input: Please enter a number from 1 to 3.");
         }
         return validatedInterestRate;
     }
 
 
     //***Method is used to validate the desired max and min value of the initial capital.***
-    double validateInitialCapital(double initialCapital) throws wrongInputException {
+    double validateInitialCapital(double initialCapital) throws InvalidInitialCapitalException {
         BigDecimal validatedCapital = BigDecimal.valueOf(initialCapital);
         if (validatedCapital.scale() > 2 || initialCapital < 100 || initialCapital > 10000000) {
-            throw new wrongInputException("The capital to invest must be a value between 100,00 and 10.000.000,00 EURO and must not have more than 2 decimals.");
+            throw new InvalidInitialCapitalException("The capital to invest must be a value between 100,00 and 10.000.000,00 EURO and must not have more than 2 decimals.");
         } else {
             return initialCapital;
         }
@@ -33,9 +32,9 @@ public class InterestCalculator {
 
 
     //***Method is used in Main to validate the desired max and min range for duration.***
-    int validateDuration(int duration) throws wrongInputException {
+    int validateDuration(int duration) throws InvalidDurationException {
         if (duration < 1 || duration > 30) {
-            throw new wrongInputException("The duration of investment has to be at least a year and can go up to 30 years. Investments are only possible for full years.");
+            throw new InvalidDurationException("The duration of investment has to be at least a year and can go up to 30 years. Investments are only possible for full years.");
         } else {
             return duration;
         }

@@ -15,6 +15,7 @@ class InterestCalculatorTest {
     //+++Equivalence Classes for input parameter "risk"+++
     //1) valid Equivalence Class: numbers (integer) from 1 to 3 --> concrete test cases: 0, 1, 3, 4
     //2) invalid Equivalence Classes: everything else that is not in this range. --> test cases are covered by valid equivalence class.
+    //Note: testing for invalid String input is not necessary due to scanner.nextInt() method.
 
     @ParameterizedTest
     @DisplayName("Interest Rate - Valid Cases")
@@ -43,7 +44,8 @@ class InterestCalculatorTest {
             "4"
     })
     void determineInterestRateInvalidCases(int input) {
-        wrongInputException e = assertThrows(wrongInputException.class, () -> interestCalculator.determineInterestRate(input));
+        InvalidDurationException e = assertThrows(InvalidDurationException.class, () -> interestCalculator.determineInterestRate(input));
+        assertEquals("Invalid input: Please enter a number from 1 to 3.", e.getMessage());
     }
 
 
@@ -54,6 +56,7 @@ class InterestCalculatorTest {
     // --> Test Cases - concrete values: 99.99, 100.00, 100.01, 9999999.99, 10000000.00, 10000000.01
     // More than two digits after the decimal point can be entered too (but should be invalidated later)
     //2) invalid EC: everything outside of this range --> Test cases already covered in valid EC + 99.999, 10000000.001 (to test digits after comma validation)
+    //Note: testing for invalid String input is not necessary due to scanner.nextDouble() method.
 
     @ParameterizedTest
     @DisplayName("Initial Capital - Valid Cases")
@@ -85,7 +88,8 @@ class InterestCalculatorTest {
             "10000000.01"
     })
     void validateInitialCapitalInvalidCases(double input) {
-        wrongInputException e = assertThrows(wrongInputException.class, () -> interestCalculator.validateInitialCapital(input));
+        InvalidInitialCapitalException e = assertThrows(InvalidInitialCapitalException.class, () -> interestCalculator.validateInitialCapital(input));
+        assertEquals("The capital to invest must be a value between 100,00 and 10.000.000,00 EURO and must not have more than 2 decimals.", e.getMessage());
     }
 
 
@@ -94,6 +98,7 @@ class InterestCalculatorTest {
     //+++Equivalence Classes for input parameter "duration"+++
     //1) Valid equivalence class: 1 to 30 years --> concrete test cases: 0, 1, 2, 29, 30, 31
     //2) Invalid equivalence class: everything else that is not in this range. --> test cases are covered by valid equivalence class.
+    //Note: testing for invalid String input is not necessary due to scanner.nextInt() method.
 
     @ParameterizedTest
     @DisplayName("Duration")
@@ -123,7 +128,8 @@ class InterestCalculatorTest {
             "31"
     })
     void validateDurationInvalidCases(int input) {
-       wrongInputException e = assertThrows(wrongInputException.class, () -> interestCalculator.validateDuration(input));
+       InvalidDurationException e = assertThrows(InvalidDurationException.class, () -> interestCalculator.validateDuration(input));
+        assertEquals("The duration of investment has to be at least a year and can go up to 30 years. Investments are only possible for full years.", e.getMessage());
     }
 
 
