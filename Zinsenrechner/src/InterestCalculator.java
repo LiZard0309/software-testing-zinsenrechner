@@ -20,6 +20,10 @@ public class InterestCalculator {
 
 
     //***Method is used to validate the desired max and min value of the initial capital.***
+    //+++initialCapital+++
+    //1) gültige Äquivalenzklasse zweistellige Dezimalzahlen von 100.00 bis 10000000.00 --> Konkrete Testfälle: 99.99, 100.00, 100.01, 9999999.99, 10000000.00, 10000000.01, mehr als 2 Nachkommastellen werden in der Eingabe aber akzeptiert
+    //2) ungültige Äquivalenzklasse: alles, was sich nicht in diesem Bereich befindet --> Testfälle von ÄK 1 abgedeckt.
+
     double validateInitialCapital (double initialCapital) throws wrongInputException {
         BigDecimal validatedCapital = BigDecimal.valueOf(initialCapital);
         if (validatedCapital.scale() > 2 || initialCapital < 100 || initialCapital > 10000000) {
@@ -30,10 +34,6 @@ public class InterestCalculator {
     }
 
     //***Method is used in Main to calculate the final max-capital after interest gains.***
-
-    //+++initialCapital+++
-    //1) gültige Äquivalenzklasse zweistellige Dezimalzahlen von 100.00 bis 10000000.00 --> Konkrete Testfälle: 99.99, 100.00, 100.01, 9999999.99, 10000000.00, 10000000.01, mehr als 2 Nachkommastellen werden in der Eingabe aber akzeptiert
-    //2) ungültige Äquivalenzklasse: alles, was sich nicht in diesem Bereich befindet --> Testfälle von ÄK 1 abgedeckt.
 
     //+++duration+++
     //1) gültige Äquivalenzklasse: 1 bis 30 Jahre --> Konkrete Testfälle: 0, 1, 2, 29, 30, 31
