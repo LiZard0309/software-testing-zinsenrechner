@@ -1,3 +1,5 @@
+import java.math.BigDecimal;
+
 public class InterestCalculator {
 
     //***Method is used in Main to determine the interest rate based on the risk class input***
@@ -14,6 +16,17 @@ public class InterestCalculator {
         };
 
         return interestRate;
+    }
+
+
+    //***Method is used to validate the desired max and min value of the initial capital.***
+    double validateInitialCapital (double initialCapital) throws wrongInputException {
+        BigDecimal validatedCapital = BigDecimal.valueOf(initialCapital);
+        if (validatedCapital.scale() > 2 || initialCapital < 100 || initialCapital > 10000000) {
+            throw new wrongInputException("The capital to invest must be a value between 100,00 and 10.000.000,00 EURO and must not have more than 2 decimals.");
+        } else {
+            return initialCapital;
+        }
     }
 
     //***Method is used in Main to calculate the final max-capital after interest gains.***
