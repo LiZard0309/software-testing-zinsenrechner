@@ -10,9 +10,9 @@ public class Main {
         //TODO: Refactor into loop for new calculations until user ends loop
 
         System.out.println("How much money (in Euro) would you like to invest?");
-        double initialCapital = scanner.nextDouble();
+        double initialCapital = interestCalculator.validateInitialCapital(scanner.nextDouble());
         System.out.println("How long would you like to invest that money for (in years)?");
-        int duration = scanner.nextInt();
+        int duration = interestCalculator.validateDuration(scanner.nextInt());
         System.out.println("How risky should your investment be? Please enter 1 for low risk (interest rate of 2.5 percent), 2 for medium risk (interest rate of 7 percent) or 3 for high risk (interest rate of 15 percent).");
         int risk = scanner.nextInt();
 

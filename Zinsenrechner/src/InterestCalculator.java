@@ -5,15 +5,22 @@ public class InterestCalculator {
     //***Method is used in Main to determine the interest rate based on the risk class input***
 
     //+++risk+++
-    //1) gültige Äquivalenzklasse: Integer Zahlen von 1 bis 3 --> Konkrete Testfälle: 0, 1, 3, 4
-    //2) ungültige Äquivalenzklasse: alles, was sich nicht in diesem Bereich befindet. --> Testfälle von ÄK 1 abgedeckt.
-    double determineInterestRate(int risk){
-        double interestRate = switch (risk) {
-            case 1 -> 2.5;
-            case 2 -> 7;
-            case 3 -> 15;
-            default -> 0;
-        };
+    //1) valid Equivalence Classes: Integer numbers from 1 to 3 --> Test Cases - concrete values: 0, 1, 3, 4
+    //2) invalid Equivalence Classes: everything outside of this range --> Test cases already covered in valid EC
+
+    double determineInterestRate(int risk) throws wrongInputException {
+        double validatedInterestRate = 0;
+
+        if (risk == 1 || risk == 2 || risk == 3) {
+            validatedInterestRate = switch (risk) {
+                case 1 -> 2.5;
+                case 2 -> 7;
+                case 3 -> 15;
+                default -> 0;
+            };
+        } else {
+            throw new wrongInputException("Invalid input: Please enter a number from 1 to 3.");
+         }
 
         return interestRate;
     }
@@ -33,20 +40,29 @@ public class InterestCalculator {
         }
     }
 
-    //***Method is used in Main to calculate the final max-capital after interest gains.***
-
+    //***Method is used in Main to validate the desired max and min range for duration.***
     //+++duration+++
-    //1) gültige Äquivalenzklasse: 1 bis 30 Jahre --> Konkrete Testfälle: 0, 1, 2, 29, 30, 31
-    //2) ungültige Äquivalenzklasse: alles, was sich nicht in diesem Bereich befindet. --> Testfälle von ÄK 1 abgedeckt.
+    //1) Valid equivalence class: 1 to 30 years --> concrete test cases: 0, 1, 2, 29, 30, 31
+    //2) Invalid equivalence class: everything else that is not in this range. --> test cases are covered by valid equivalence class.
 
-    //+++interestRate+++
-    //1) gültige Äquivalenzklasse: [2.5, 7, 15] --> Konkrete Testfälle: 2.4, 2.5, 5, 7, 10.5, 15, 15.1
-    //2) ungültige Äquivalenzklasse: jede Zahl, die NICHT 2.5, 7 oder 15 ist. --> Testfälle von ÄK 1 abgedeckt.
+    int validateDuration (int duration) throws wrongInputException {
+        if (duration < 1 || duration > 30){
+            throw new wrongInputException("The duration of investment has to be at least a year and can go up to 30 years. Investments are only possible for full years.");
+        }else {
+            return duration;
+        }
+    }
+
+
+    //***Method is used in Main to calculate the final max-capital after interest gains.***
+    //+++initialCapital, duration and validatedInterestRate are either explicitly or implicitly (in case of interestRate) validated by validateInitialCapital(), validateDuration() and determineInterestRate()+++
+    //--> Those values don't need to be tested again because only valid values can be passed to calculateEquityAfterInterest.
+
+    //Logical test case --> equals the result of the formula for compound interest: Amount = Principal (1 + Interest rate/compounding frequency) to the power of Time in years
 
     double calculateEquityAfterInterest(double initialCapital, int duration, double interestRate) {
 
-        //TODO: Hier einen Check einbauen, dass nur Zahlen >=100 und <=10.000.000!
-        double finalCapital = initialCapital * Math.pow((1 + interestRate/100), duration);
+        double finalCapital = initialCapital * Math.pow((1 + validatedInterestRate/100), duration);
         return finalCapital;
     }
 }
