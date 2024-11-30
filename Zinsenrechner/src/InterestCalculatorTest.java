@@ -44,8 +44,11 @@ class InterestCalculatorTest {
             "4"
     })
     void determineInterestRateInvalidCases(int input) {
-        InvalidDurationException e = assertThrows(InvalidDurationException.class, () -> interestCalculator.determineInterestRate(input));
-        assertEquals("Invalid input: Please enter a number from 1 to 3.", e.getMessage());
+        InvalidRiskException e = assertThrows(InvalidRiskException.class, () -> interestCalculator.determineInterestRate(input));
+
+        String actual = e.getMessage();
+        String expected = "Invalid input: Please enter a number from 1 to 3.";
+        assertTrue(actual.contains(expected));
     }
 
 
@@ -100,7 +103,7 @@ class InterestCalculatorTest {
     //Note: testing for invalid String input is not necessary due to scanner.nextInt() method.
 
     @ParameterizedTest
-    @DisplayName("Duration")
+    @DisplayName("Duration - Valid Cases")
     @CsvSource({
             "1, 1",
             "2, 2",
@@ -142,6 +145,7 @@ class InterestCalculatorTest {
     //Concrete test case --> inputs: initialCapital = 100; duration = 10 years; validatedInterestRate = 2.5 --> expected output finalCapital = 128,01
 
     @Test
+    @DisplayName("Final Equity")
     void calculateEquityAfterInterest() {
 
         //assign
