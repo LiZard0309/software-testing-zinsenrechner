@@ -93,7 +93,6 @@ class InterestCalculatorTest {
     }
 
 
-
     //~~~~~~~~ Tests for validateDuration() ~~~~~~~~~~
     //+++Equivalence Classes for input parameter "duration"+++
     //1) Valid equivalence class: 1 to 30 years --> concrete test cases: 0, 1, 2, 29, 30, 31
@@ -128,7 +127,7 @@ class InterestCalculatorTest {
             "31"
     })
     void validateDurationInvalidCases(int input) {
-       InvalidDurationException e = assertThrows(InvalidDurationException.class, () -> interestCalculator.validateDuration(input));
+        InvalidDurationException e = assertThrows(InvalidDurationException.class, () -> interestCalculator.validateDuration(input));
         assertEquals("The duration of investment has to be at least a year and can go up to 30 years. Investments are only possible for full years.", e.getMessage());
     }
 
@@ -155,7 +154,7 @@ class InterestCalculatorTest {
         double actual = 0.00;
         try {
             actual = interestCalculator.calculateEquityAfterInterest(inputCapital, inputDuration, inputValidatedInterestRate);
-        } catch(Exception e) {
+        } catch (Exception e) {
             fail("Exception thrown: " + e.getMessage());
         }
 
