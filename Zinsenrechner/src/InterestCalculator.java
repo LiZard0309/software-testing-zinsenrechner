@@ -1,13 +1,9 @@
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 
 public class InterestCalculator {
 
     //***Method is used in Main to determine the interest rate based on the risk class input***
-
-    //+++risk+++
-    //1) valid Equivalence Classes: Integer numbers from 1 to 3 --> Test Cases - concrete values: 0, 1, 3, 4
-    //2) invalid Equivalence Classes: everything outside of this range --> Test cases already covered in valid EC
-
     double determineInterestRate(int risk) throws wrongInputException {
         double validatedInterestRate = 0;
 
@@ -20,8 +16,7 @@ public class InterestCalculator {
             };
         } else {
             throw new wrongInputException("Invalid input: Please enter a number from 1 to 3.");
-         }
-
+        }
         return validatedInterestRate;
     }
 
@@ -42,29 +37,21 @@ public class InterestCalculator {
         }
     }
 
-    //***Method is used in Main to validate the desired max and min range for duration.***
-    //+++duration+++
-    //1) Valid equivalence class: 1 to 30 years --> concrete test cases: 0, 1, 2, 29, 30, 31
-    //2) Invalid equivalence class: everything else that is not in this range. --> test cases are covered by valid equivalence class.
 
-    int validateDuration (int duration) throws wrongInputException {
-        if (duration < 1 || duration > 30){
+    //***Method is used in Main to validate the desired max and min range for duration.***
+    int validateDuration(int duration) throws wrongInputException {
+        if (duration < 1 || duration > 30) {
             throw new wrongInputException("The duration of investment has to be at least a year and can go up to 30 years. Investments are only possible for full years.");
-        }else {
+        } else {
             return duration;
         }
     }
 
 
     //***Method is used in Main to calculate the final max-capital after interest gains.***
-    //+++initialCapital, duration and validatedInterestRate are either explicitly or implicitly (in case of interestRate) validated by validateInitialCapital(), validateDuration() and determineInterestRate()+++
-    //--> Those values don't need to be tested again because only valid values can be passed to calculateEquityAfterInterest.
-
-    //Logical test case --> equals the result of the formula for compound interest: Amount = Principal (1 + Interest rate/compounding frequency) to the power of Time in years
-
     double calculateEquityAfterInterest(double initialCapital, int duration, double validatedInterestRate) {
-
-        double finalCapital = initialCapital * Math.pow((1 + validatedInterestRate/100), duration);
+        double finalCapital = initialCapital * Math.pow((1 + validatedInterestRate / 100), duration);
+        finalCapital = Math.round(finalCapital * 100.0) / 100.0;
         return finalCapital;
     }
 }
