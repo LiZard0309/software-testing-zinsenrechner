@@ -22,14 +22,16 @@ public class InterestCalculator {
             throw new wrongInputException("Invalid input: Please enter a number from 1 to 3.");
          }
 
-        return interestRate;
+        return validatedInterestRate;
     }
 
 
     //***Method is used to validate the desired max and min value of the initial capital.***
     //+++initialCapital+++
-    //1) gültige Äquivalenzklasse zweistellige Dezimalzahlen von 100.00 bis 10000000.00 --> Konkrete Testfälle: 99.99, 100.00, 100.01, 9999999.99, 10000000.00, 10000000.01, mehr als 2 Nachkommastellen werden in der Eingabe aber akzeptiert
-    //2) ungültige Äquivalenzklasse: alles, was sich nicht in diesem Bereich befindet --> Testfälle von ÄK 1 abgedeckt.
+    //1) valid EC: Double with two digits after the decimal point, ranging from 100.00 to 10000000.00
+    // --> Test Cases - concrete values: 99.99, 100.00, 100.01, 9999999.99, 10000000.00, 10000000.01
+    // More than two digits after the decimal point can be entered too (but should be invalidated later)
+    //2) invalid EC: everything outside of this range --> --> Test cases already covered in valid EC
 
     double validateInitialCapital (double initialCapital) throws wrongInputException {
         BigDecimal validatedCapital = BigDecimal.valueOf(initialCapital);
@@ -60,7 +62,7 @@ public class InterestCalculator {
 
     //Logical test case --> equals the result of the formula for compound interest: Amount = Principal (1 + Interest rate/compounding frequency) to the power of Time in years
 
-    double calculateEquityAfterInterest(double initialCapital, int duration, double interestRate) {
+    double calculateEquityAfterInterest(double initialCapital, int duration, double validatedInterestRate) {
 
         double finalCapital = initialCapital * Math.pow((1 + validatedInterestRate/100), duration);
         return finalCapital;

@@ -9,6 +9,7 @@ public class Main {
 
         //TODO: Refactor into loop for new calculations until user ends loop
 
+
         System.out.println("How much money (in Euro) would you like to invest?");
         double initialCapital = interestCalculator.validateInitialCapital(scanner.nextDouble());
         System.out.println("How long would you like to invest that money for (in years)?");
